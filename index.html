@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoHero Marketplace - Homepage</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* =========================================
+        Global Styles & Eco-Friendly Theme
+           ========================================= */
+
+        /* Define Green Theme Colors */
+        :root {
+            --primary-green: #388E3C; /* Green 700 */
+            --secondary-green: #4CAF50; /* Green 500 */
+            --light-green-bg: #E8F5E9; /* Green 50 */
+            --text-dark: #212121;
+            --text-light: #757575;
+            --border-color: #E0E0E0;
+            --white: #FFFFFF;
+            --font-main: 'Lato', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-green);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-green);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 0.8rem 1.8rem;
+            border-radius: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-green);
+            color: var(--white);
+        }
+
+        .cta-button-light {
+            background-color: var(--white);
+            color: var(--text-dark);
+        }
+        .cta-button-light:hover {
+            background-color: #f1f1f1;
+            color: var(--text-dark);
+        }
+
+
+        /* =========================================
+           Component Styles (from Prompt)
+           ========================================= */
+
+        /* [Top Bar] */
+        .top-bar {
+            background-color: var(--light-green-bg);
+            color: var(--primary-green);
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        /* [Main Navigation] */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .menu li {
+            margin: 0 1rem;
+        }
+
+        .menu li a {
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .menu li a i {
+            font-size: 0.8rem;
+            margin-left: 4px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar {
+            display: flex;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .search-bar input {
+            border: none;
+            padding: 0.5rem;
+            outline: none;
+        }
+
+        .search-bar button {
+            border: none;
+            background: #f4f4f4;
+            padding: 0 0.8rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .nav-icons a {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            margin-left: 1.2rem;
+            position: relative;
+        }
+
+        .nav-icons a span {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: var(--secondary-green);
+            color: var(--white);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 0.75rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        /* [Hero Section] */
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/download.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--white);
+            font-weight: 300;
+        }
+
+        /* [Trust Badge Bar] */
+        .trust-badges {
+            background-color: #FAFAFA;
+            display: flex;
+            justify-content: space-around;
+            padding: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .badge i {
+            font-size: 2rem;
+            color: var(--secondary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        /* [Featured Categories] */
+        .featured-categories {
+            background: var(--white);
+        }
+        .category-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .category-item {
+            text-align: center;
+        }
+        .category-item img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 3px solid var(--light-green-bg);
+            transition: transform 0.3s ease;
+        }
+        .category-item:hover img {
+            transform: scale(1.05);
+            border-color: var(--secondary-green);
+        }
+        .category-item h3 {
+            margin-top: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* [Product Carousel / Product Card] */
+        .product-carousel {
+            background-color: var(--light-green-bg);
+        }
+        .carousel-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            /* NOTE: Add overflow-x: auto for a simple scroll */
+            overflow-x: auto;
+            padding-bottom: 1.5rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            flex-basis: 270px; /* Base width */
+            flex-shrink: 0; /* Prevents shrinking */
+            transition: box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-card .brand-name {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin: 1rem 1rem 0.25rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.1rem;
+            margin: 0 1rem;
+        }
+
+        .product-card .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin: 0.5rem 1rem;
+        }
+
+        .product-card .product-values {
+            margin: 0 1rem 1rem;
+            color: var(--secondary-green);
+        }
+
+        .product-card .product-values i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* [Mid-Page CTA Banner] */
+        .cta-banner {
+            background-color: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .cta-banner h2 {
+            font-size: 2.5rem;
+        }
+        .cta-banner p {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* ["Shop by Eco-Friendly Value"] */
+        .shop-by-value {
+            background-color: var(--white);
+        }
+        .value-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .value-card {
+            background-color: var(--white);
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        .value-card:hover {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        /* [Featured Brands] */
+        .featured-brands {
+            background-color: #FAFAFA;
+        }
+        .brand-logos {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            filter: grayscale(100%);
+            opacity: 0.7;
+        }
+
+        /* [Learn Section: "From the Blog"] */
+        .blog-preview {
+            background-color: var(--white);
+        }
+        .blog-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .blog-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            flex-basis: 350px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .blog-card h3 {
+            margin: 1rem 1.5rem 0.5rem;
+        }
+        .blog-card p {
+            margin: 0 1.5rem 1rem;
+        }
+        .blog-card a {
+            display: inline-block;
+            margin: 0 1.5rem 1.5rem;
+            font-weight: 700;
+        }
+
+        /* [Social Proof] */
+        .social-proof {
+            background-color: var(--light-green-bg);
+        }
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .social-grid img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* [Footer] */
+        footer {
+            background-color: #1a1a1a;
+            color: var(--white);
+            padding-top: 4rem;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .footer-column {
+            flex-basis: 250px;
+        }
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+        .footer-column ul {
+            list-style: none;
+        }
+        .footer-column li {
+            margin-bottom: 0.75rem;
+        }
+        .footer-column a {
+            color: var(--text-light);
+        }
+        .footer-column a:hover {
+            color: var(--white);
+        }
+        .footer-column p {
+            color: var(--text-light);
+        }
+        .newsletter-form {
+            display: flex;
+            margin-top: 1rem;
+        }
+        .newsletter-form input {
+            flex-grow: 1;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+        .newsletter-form button {
+            border: none;
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 0 1rem;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+        }
+        .social-icons {
+            margin-top: 1.5rem;
+        }
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #333;
+            color: var(--text-light);
+        }
+
+        /* =========================================
+           Basic Responsiveness
+           ========================================= */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.8rem;
+            }
+            .main-nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .menu {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            .menu li {
+                margin: 0.5rem 0;
+            }
+            .nav-right {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            .search-bar {
+                width: 100%;
+                margin-right: 0;
+            }
+            .nav-icons {
+                margin-top: 1rem;
+            }
+            .hero {
+                height: 40vh;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .trust-badges {
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+            .blog-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        Gratis Ongkir untuk pesanan di atas Rp 250.000
+    </div>
+
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="index.html">EcoHero</a>
+            </div>
+            <ul class="menu">
+                <li><a href="#">Shop by Category <i class="fas fa-chevron-down"></i></a></li>
+                <li><a href="#">Shop by Value <i class="fas fa-chevron-down"></i></a></li>
+                <li><a href="#">Brands</a></li>
+                <li><a href="#">Learn (Blog)</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="nav-icons">
+                    <a href="#" aria-label="Account"><i class="fas fa-user"></i></a>
+                    <a href="#" aria-label="Wishlist"><i class="fas fa-heart"></i></a>
+                    <a href="#" aria-label="Cart"><i class="fas fa-shopping-cart"></i><span>0</span></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+    <section class="hero">
+    <div class="hero-content">
+        <h1>Take Action Now!</h1>
+        <p>
+            Give plastic caps a second life, creating beauty with every reuse
+        </p>
+        <a href="#" class="cta-button">Shop Now</a>
+    </div>
+    </section>
+
+        <section class="trust-badges">
+            <div class="badge">
+                <i class="fas fa-leaf"></i>
+                <span>1% for the Planet</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-certificate"></i>
+                <span>Certified B Corp</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-cloud"></i>
+                <span>Climate Neutral Certified</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-box-open"></i>
+                <span>Plastic-Free Packaging</span>
+            </div>
+        </section>
+
+
+
+        <section class="product-carousel">
+            <h2>Trending Now</h2>
+            <div class="carousel-container">
+                <div class="product-card">
+                    <img src="images/keychain.jpg" alt="Product 1">
+                    <span class="brand-name">Brand Name</span>
+                    <h3>Colorful Keychain / Gantungan Kunci</h3>
+                    <div class="price">Rp 40.000</div>
+                    <div class="product-values">
+                        <i class="fas fa-recycle" title="Recycled"></i>
+                        <i class="fas fa-ban" title="Zero Waste"></i>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/tissue.jpg" alt="Product 2">
+                    <span class="brand-name">Brand Name</span>
+                    <h3>Tissue Box / Box Tisu</h3>
+                    <div class="price">Rp 40.000</div>
+                    <div class="product-values">
+                        <i class="fas fa-leaf" title="Organic"></i>
+                        <i class="fas fa-paw" title="Vegan"></i>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/bagcharm.jpg" alt="Product 3">
+                    <span class="brand-name">Brand Name</span>
+                    <h3>Bag Charm / Gantungan Tas</h3>
+                    <div class="price">Rp 45.000</div>
+                    <div class="product-values">
+                        <i class="fas fa-ban" title="Zero Waste"></i>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/coaster.jpg" alt="Product 4">
+                    <span class="brand-name">Brand Name</span>
+                    <h3>Coaster / Tatakan Gelas</h3>
+                    <div class="price">Rp 20.000</div>
+                    <div class="product-values">
+                        <i class="fas fa-recycle" title="Recycled"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-banner">
+            <h2>Shop Our Zero Waste Collection</h2>
+            <p>Produk untuk membantu Anda mengurangi sampah dan hidup lebih minimalis.</p>
+            <a href="#" class="cta-button cta-button-light">Shop Zero Waste</a>
+        </section>
+
+        <section class="shop-by-value">
+            <h2>Shop by Eco-Friendly Value</h2>
+            <div class="value-grid">
+                <a href="#" class="value-card">Recycled</a>
+                <a href="#" class="value-card">Organic</a>
+                <a href="#" class="value-card">Vegan</a>
+                <a href="#" class="value-card">Cruelty-Free</a>
+                <a href="#" class="value-card">Zero Waste</a>
+                <a href="#" class="value-card">B Corp</a>
+            </div>
+        </section>
+
+        <section class="blog-preview">
+            <h2>From the Blog</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="https://via.placeholder.com/350x200/E8F5E9/388E3C?text=Blog+Image" alt="Blog Post 1">
+                    <h3>5 Cara Mudah Memulai Gaya Hidup Zero Waste</h3>
+                    <p>Memulai tidak sesulit yang Anda bayangkan. Baca tips praktis kami...</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div class="blog-card">
+                    <img src="https://via.placeholder.com/350x200/E8F5E9/388E3C?text=Blog+Image" alt="Blog Post 2">
+                    <h3>Apa Arti Sertifikasi 'B Corp'?</h3>
+                    <p>Mengapa Anda harus mendukung bisnis yang memiliki sertifikasi ini...</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div class="blog-card">
+                    <img src="https://via.placeholder.com/350x200/E8F5E9/388E3C?text=Blog+Image" alt="Blog Post 3">
+                    <h3>Review: 3 Sabun Batang Terbaik Pilihan Kami</h3>
+                    <p>Kami telah mencoba dan mengulas sabun batang yang ramah lingkungan...</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </section>
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="#">Shop by Category</a></li>
+                    <li><a href="#">Shop by Value</a></li>
+                    <li><a href="#">Brands</a></li>
+                    <li><a href="#">On Sale</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Help</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">My Account</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Our Values</a></li>
+                    <li><a href="#">Learn (Blog)</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Join Our Newsletter</h3>
+                <p>Get 10% off your first order and eco-tips!</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button>Subscribe</button>
+                </div>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 EcoHero Marketplace. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
